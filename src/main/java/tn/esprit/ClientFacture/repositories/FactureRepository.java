@@ -7,5 +7,6 @@ import tn.esprit.ClientFacture.entities.Facture;
 
 @Repository
 public interface FactureRepository extends JpaRepository<Facture, Long>{
-	
+	  @Query("select u from Facture u where u.client.id = ?1")
+	 List <Facture> findFactureByIdClient(long id);
 }
